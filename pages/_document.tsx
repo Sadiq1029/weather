@@ -5,6 +5,8 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/icons/icon-128x128.png" />
+        <meta name="apple-mobile-web-app-status-bar" content="#fff" />
       </Head>
       <body>
         <Main />
