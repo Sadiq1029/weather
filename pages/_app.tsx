@@ -1,11 +1,16 @@
-import { ChakraProvider } from "@chakra-ui/react";
+// next and react
 import type { AppProps } from "next/app";
+import { useEffect } from "react";
+// styling
+import { ChakraProvider } from "@chakra-ui/react";
+// state
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import dataReducer from "../states/data";
-import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  // service worker registration
+
   useEffect(() => {
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {
@@ -23,6 +28,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       });
     }
   }, []);
+
+  // redux store
+
   const store = configureStore({
     reducer: {
       data: dataReducer,

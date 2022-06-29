@@ -1,24 +1,16 @@
+// next and react
 import type { NextPage } from "next";
-import { setData } from "../states/data";
-import { useDispatch } from "react-redux";
-import {
-  Container,
-  Flex,
-  Input,
-  Button,
-  Grid,
-  GridItem,
-  Text,
-} from "@chakra-ui/react";
-import { AiOutlineSearch } from "react-icons/ai";
 import { useEffect, useState } from "react";
+// styling
+import { Container, Grid, GridItem, Text } from "@chakra-ui/react";
+// redux
 import { useSelector } from "react-redux";
 import { selectValue } from "../states/data";
+// components
+import Search from "./Search";
 
 const Stats: NextPage = () => {
-  const dispatch = useDispatch();
   const [myData, setMyData] = useState<any>(null);
-  const [search, setSearch] = useState<any>("");
   const data = useSelector(selectValue);
 
   useEffect(() => {
@@ -40,44 +32,7 @@ const Stats: NextPage = () => {
       boxShadow={"xl"}
       style={{ backdropFilter: "blur(10px)" }}
     >
-      <Flex alignItems="center" gap="3">
-        <Input
-          variant="filled"
-          backgroundColor="hsl(0, 0%, 93%)"
-          my="5"
-          color="black"
-          _placeholder={{ color: "#222" }}
-          _focus={{
-            backgroundColor: "hsl(0, 0%, 83%)",
-          }}
-          _hover={{
-            backgroundColor: "hsl(0, 0%, 83%)",
-          }}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Tokyo, JP"
-        />
-        <Button
-          backgroundColor="hsl(0, 0%, 93%)"
-          _focus={{
-            backgroundColor: "hsl(0, 0%, 83%)",
-          }}
-          _hover={{
-            backgroundColor: "hsl(0, 0%, 83%)",
-          }}
-          onClick={() => {
-            fetch(
-              `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&lang=english&appid=00dca6d20277c65e862e3758618bf541`
-            )
-              .then((response) => response.json())
-              .then((data) => {
-                dispatch(setData(data));
-              });
-          }}
-          aria-label="search"
-        >
-          <AiOutlineSearch color="#333" />
-        </Button>
-      </Flex>
+      <Search />
       <Grid
         gap="10"
         mx="auto"
@@ -85,7 +40,6 @@ const Stats: NextPage = () => {
         p="5"
         height={{ md: "85vh" }}
         overflowX={{ md: "auto" }}
-        // border="1px aqua solid"
         minW="430px"
         color="white"
         justifyContent="center"
