@@ -18,7 +18,7 @@ const Overview: NextPage = () => {
     <Flex>
       <Flex id="stats" m="8" flexDirection="column" color="white">
         <Text fontSize="xl" fontWeight="hairline">
-          {myData ? myData.name + "," : "Sorry, we ran into error"}{" "}
+          {myData ? myData.name + "," : "check your connection"}{" "}
           {myData ? myData.sys.country : ""}
         </Text>
         <Text fontWeight="bold" fontSize="8xl">

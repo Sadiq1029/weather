@@ -17,10 +17,16 @@ const Search: NextPage = () => {
     fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&lang=english&appid=00dca6d20277c65e862e3758618bf541`
     )
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.status >= 400) {
+          dispatch(setData(null));
+          throw new Error("failed to load");
+        } else return response.json();
+      })
       .then((data) => {
         dispatch(setData(data));
-      });
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <Flex alignItems="center" gap="3">
@@ -37,7 +43,7 @@ const Search: NextPage = () => {
           backgroundColor: "hsl(0, 0%, 83%)",
         }}
         onChange={(e) => setSearch(e.target.value)}
-        placeholder="Tokyo, JP"
+        placeholder="Enter city name"
       />
       <Button
         backgroundColor="hsl(0, 0%, 93%)"
