@@ -50,7 +50,7 @@ const Stats: NextPage = () => {
             Feels like
           </Text>
           <Text fontSize="2xl" opacity=".8">
-            {myData ? myData.main.feels_like : ""}&deg;C
+            {myData ? myData.main.feels_like : "__"}&deg;C
           </Text>
         </GridItem>
         <GridItem>
@@ -58,7 +58,7 @@ const Stats: NextPage = () => {
             Humidity
           </Text>
           <Text fontSize="2xl" opacity=".8">
-            {myData ? myData.main.humidity : ""} &#37;
+            {myData ? myData.main.humidity : "__"} &#37;
           </Text>
         </GridItem>
         <GridItem>
@@ -66,7 +66,7 @@ const Stats: NextPage = () => {
             Longitude
           </Text>
           <Text fontSize="2xl" opacity=".8">
-            {myData ? myData.coord.lon : ""}&deg;
+            {myData ? myData.coord.lon : "__"}&deg;
           </Text>
         </GridItem>
         <GridItem>
@@ -74,7 +74,7 @@ const Stats: NextPage = () => {
             Latitude
           </Text>
           <Text fontSize="2xl" opacity=".8">
-            {myData ? myData.coord.lat : ""}&deg;
+            {myData ? myData.coord.lat : "__"}&deg;
           </Text>
         </GridItem>
         <GridItem>
@@ -82,7 +82,7 @@ const Stats: NextPage = () => {
             Max Temp
           </Text>
           <Text fontSize="2xl" opacity=".8">
-            {myData ? myData.main.temp_max : ""}&deg;C
+            {myData ? myData.main.temp_max : "__"}&deg;C
           </Text>
         </GridItem>
         <GridItem>
@@ -90,7 +90,7 @@ const Stats: NextPage = () => {
             Min Temp
           </Text>
           <Text fontSize="2xl" opacity=".8">
-            {myData ? myData.main.temp_min : ""}&deg;C
+            {myData ? myData.main.temp_min : "__"}&deg;C
           </Text>
         </GridItem>
         <GridItem>
@@ -98,7 +98,7 @@ const Stats: NextPage = () => {
             Pressure
           </Text>
           <Text fontSize="2xl" opacity=".8">
-            {myData ? myData.main.pressure : ""}hPa
+            {myData ? myData.main.pressure : "__"}hPa
           </Text>
         </GridItem>
       </Grid>

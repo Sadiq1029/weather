@@ -18,14 +18,14 @@ const Home: NextPage = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        dispatch(setData(data));
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(url)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       dispatch(setData(data));
+  //     });
+  // }, []);
 
   return (
     <>

@@ -18,10 +18,11 @@ const Overview: NextPage = () => {
     <Flex>
       <Flex id="stats" m="8" flexDirection="column" color="white">
         <Text fontSize="xl" fontWeight="hairline">
-          {myData ? myData.name : "_"}, {myData ? myData.sys.country : "_"}
+          {myData ? myData.name + "," : "Sorry, we ran into error"}{" "}
+          {myData ? myData.sys.country : ""}
         </Text>
         <Text fontWeight="bold" fontSize="8xl">
-          {myData ? Math.floor(myData.main.temp) : "0"}&deg;C
+          {myData ? Math.floor(myData.main.temp) : "__"}&deg;C
         </Text>
         <Text>{myData ? myData.weather[0].main : ""}</Text>
       </Flex>
