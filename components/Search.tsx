@@ -25,6 +25,7 @@ const Search: NextPage = () => {
       })
       .then((data) => {
         dispatch(setData(data));
+        localStorage.setItem("location", JSON.stringify(data.name));
       })
       .catch((err) => console.log(err));
   };

@@ -12,14 +12,16 @@ import Hero from "../components/Hero";
 
 const Home: NextPage = () => {
   // initialization
-
-  let url =
-    "https://api.openweathermap.org/data/2.5/weather?q=Tokyo,JP&units=metric&lang=english&appid=00dca6d20277c65e862e3758618bf541";
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch(url)
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${
+        localStorage.getItem("location")
+          ? JSON.parse(localStorage.getItem("location") || "")
+          : "Tokyo,JP"
+      }&units=metric&lang=english&appid=00dca6d20277c65e862e3758618bf541`
+    )
       .then((response) => {
         if (response.status >= 400) {
           throw Error("failed to fetch data");
