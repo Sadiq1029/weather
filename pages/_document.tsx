@@ -8,6 +8,7 @@ export default function Document() {
         <link rel="apple-touch-icon" href="/icons/icon-128x128.png" />
         <meta name="apple-mobile-web-app-status-bar" content="#fff" />
         <meta name="theme-color" content="#f2f2f2" />
+        <meta charSet="UTF-8"></meta>
       </Head>
       <body>
         <Main />
